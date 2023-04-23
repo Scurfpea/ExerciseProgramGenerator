@@ -36,7 +36,7 @@ namespace ExerciseProgramGenerator
         }
         public string MakeTitle()
         {
-            string title = String.Format("{0};{1};{2};{3};{4}", Name, Duration, Level, Category); //String.Format converts to string
+            string title = String.Format("{0};{1};{2};{3}", Name, Duration, Level, Category); //String.Format converts to string
 
             return title;
         }
