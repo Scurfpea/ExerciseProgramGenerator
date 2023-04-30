@@ -21,21 +21,21 @@ namespace ExerciseProgramGenerator2
         {
             get; set;
         }
-        public string Category
-        {
-            get; set;
-        }
+        //public string Category
+        //{
+        //    get; set;
+        //}
 
-        public Exercise(string name, string duration, string level, string category)
+        public Exercise(string name, string duration, string level)
         {
             Name = name;
             Duration = duration;
             Level = level;
-            Category = category;
+            //Category = category;
         }
         public string MakeTitle()
         {
-            string title = String.Format("{0};{1};{2};{3}", Name, Duration, Level, Category); //String.Format converts to string
+            string title = String.Format("{0};{1};{2}", Name, Duration, Level); //String.Format converts to string
 
             return title;
         }

@@ -24,18 +24,18 @@
             Exercise[] exercise = new Exercise[numOfExercises]; //saves the exercises in a array.
             //String[] exercise = new String[numOfExercises];
 
-            exercise[0] = new Exercise("Three Legged Downward Facing Dog", "5", "1", "Smidighed"); //Name, duration, level, category
-            exercise[1] = new Exercise("Lotus pose", "3", "2", "Leg");
-            exercise[2] = new Exercise("Downward Facing Dog", "3", "3", "Leg");
-            exercise[3] = new Exercise("Tree Pose", "3", "1", "Leg");
-            exercise[4] = new Exercise("Garland Yoga Squat", "5", "2", "Smidighed");
-            exercise[5] = new Exercise("Wide Child's Poses", "3", "3", "Leg");
-            exercise[6] = new Exercise("Upward Dog", "3", "1", "Leg");
-            exercise[7] = new Exercise("Pigeon Pose", "3", "2", "Leg");
-            exercise[8] = new Exercise("Cow Pose", "5", "3", "Smidighed");
-            exercise[9] = new Exercise("Bound Angle", "3", "1", "Leg");
-            exercise[10] = new Exercise("Flower Pose", "3", "2", "Leg");
-            exercise[11] = new Exercise("Seated Meditation Pose", "3", "3", "Leg");
+            exercise[0] = new Exercise("Three Legged Downward Facing Dog", "5", "1"); //Name, duration, level, category
+            exercise[1] = new Exercise("Lotus pose", "3", "2");
+            exercise[2] = new Exercise("Downward Facing Dog", "3", "3");
+            exercise[3] = new Exercise("Tree Pose", "3", "1");
+            exercise[4] = new Exercise("Garland Yoga Squat", "5", "2");
+            exercise[5] = new Exercise("Wide Child's Poses", "3", "3");
+            exercise[6] = new Exercise("Upward Dog", "3", "1");
+            exercise[7] = new Exercise("Pigeon Pose", "3", "2");
+            exercise[8] = new Exercise("Cow Pose", "5", "3");
+            exercise[9] = new Exercise("Bound Angle", "3", "1");
+            exercise[10] = new Exercise("Flower Pose", "3", "2");
+            exercise[11] = new Exercise("Seated Meditation Pose", "3", "3");
             SaveContentOfExercise(); //run method
             CheckLevel();
 
@@ -50,14 +50,14 @@
                     string[] parts = exercise[i].MakeTitle().Split(';');
                     foreach (string part in parts)
                     {
-                        //Console.WriteLine(part); //THIS IS A DEBUG. It writes all the parts in all the exercises in the array.
+                        Console.WriteLine(part); //THIS IS A DEBUG. It writes all the parts in all the exercises in the array.
                         exercise[i].Name = parts[0];
                         
                         exercise[i].Duration = parts[1];
                         
                         exercise[i].Level = parts[2];
                         
-                        exercise[i].Category = parts[3];
+                        //exercise[i].Category = parts[3];
 
                     }
                 }
@@ -91,46 +91,46 @@
                     "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
             }
 
-            void CheckCategory() //checks the category in each exercise
-            { 
+            //void CheckCategory() //checks the category in each exercise
+            //{ 
 
-                for (int i = 0; i < exercise.Length; i++)
-                {
-                    switch (exercise[i].Category)
-                    {
-                        case "Styrke": 
+            //    for (int i = 0; i < exercise.Length; i++)
+            //    {
+            //        switch (exercise[i].Category)
+            //        {
+            //            case "Styrke": 
                             
-                            break;
+            //                break;
 
-                        case "Smidighed": 
+            //            case "Smidighed": 
                             
-                            break;
+            //                break;
 
-                        case "Integration": 
+            //            case "Integration": 
                             
-                            break;
+            //                break;
 
-                        case "Skuldre": 
+            //            case "Skuldre": 
                             
-                            break;
+            //                break;
 
-                        case "Hofter,": 
+            //            case "Hofter,": 
                             
-                            break;
+            //                break;
 
-                        case "Ryg": 
+            //            case "Ryg": 
                             
-                            break;
-                        case "Balance": 
+            //                break;
+            //            case "Balance": 
                             
-                            break;
+            //                break;
 
-                        default:
-                            break;
+            //            default:
+            //                break;
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
         }
     }
