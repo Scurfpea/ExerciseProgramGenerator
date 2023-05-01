@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciseProgramGenerator", "ExerciseProgramGenerator\ExerciseProgramGenerator.csproj", "{8DD46EA8-EEFE-40B5-8314-9CB57C2C07DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseProgramGenerator2", "ExerciseProgramGenerator2\ExerciseProgramGenerator2.csproj", "{74BC6FAC-359E-41E7-A76A-518107A2A354}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExerciseProgramGenerator2", "ExerciseProgramGenerator2\ExerciseProgramGenerator2.csproj", "{74BC6FAC-359E-41E7-A76A-518107A2A354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseProgramGenerator3", "ExerciseProgramGenerator3\ExerciseProgramGenerator3.csproj", "{D2F7FF0E-DA29-4765-9ED3-A86B3B6D46F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{74BC6FAC-359E-41E7-A76A-518107A2A354}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74BC6FAC-359E-41E7-A76A-518107A2A354}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74BC6FAC-359E-41E7-A76A-518107A2A354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F7FF0E-DA29-4765-9ED3-A86B3B6D46F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F7FF0E-DA29-4765-9ED3-A86B3B6D46F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F7FF0E-DA29-4765-9ED3-A86B3B6D46F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F7FF0E-DA29-4765-9ED3-A86B3B6D46F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
