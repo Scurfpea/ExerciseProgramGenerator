@@ -6,7 +6,7 @@ namespace ExerciseProgramGenerator4
         {
             InitializeComponent();
         }
-
+        public List<Exercise> ExcerciseList = new List<Exercise>();
         private void Form1_Load(object sender, EventArgs e)
         {
             listView1.Columns.Add("Navn", 120);
@@ -107,6 +107,7 @@ namespace ExerciseProgramGenerator4
 
         private void GenerateProgram_Click(object sender, EventArgs e)
         {
+            StreamWriter sw = new StreamWriter("Data2.txt");
             //________________________________
             //take data from file
             //var lineCount = File.ReadLines(@"Data.txt").Count();
@@ -114,14 +115,64 @@ namespace ExerciseProgramGenerator4
             //________________________________
             //take data from list
             Exercise[] exercise = new Exercise[listView1.Items.Count]; //saves the exercises in a array. length of arr is number of lines in txt file.
+            bool hasSaved = false;
             foreach (ListViewItem listItem in listView1.Items)
             {
                 for (int i = 0; i < exercise.Count(); i++)
                 {
-                    exercise[i] = new Exercise("{listItem.SubItems[0].Text}", "{listItem.SubItems[1].Text}", "{ listItem.SubItems[2].Text }"); //Name, duration, level, category
+                    
+                    if (!hasSaved) { //solves issue of it running 3 times
+                    exercise[i] = new Exercise($"{listItem.SubItems[0].Text}", $"{listItem.SubItems[1].Text}", $"{ listItem.SubItems[2].Text }"); //Name, duration, level, category
+                    sw.WriteLine(exercise[i].Name); //level
+                    sw.WriteLine(exercise[i].Duration); //duration
+                    sw.WriteLine(exercise[i].Level); //level
+                        ExcerciseList.Add(exercise[i]);
+                        hasSaved = true;
+                        break;
+
+                    }
+                    if (hasSaved)
+                            {
+                        hasSaved = false;
+                    }
                 }
                 
-            }           
+            }
+
+
+            int numOfLvl1Exercises = 0;
+            int numOfLvl2Exercises = 0;
+            int numOfLvl3Exercises = 0;
+
+            for (int i = 0; i < exercise.Length; i++)
+            {
+                switch (ExcerciseList[i].Level)
+                {
+                    case "1": //beginner
+                        numOfLvl1Exercises += 1;
+                        break;
+
+                    case "2": //intermediate
+                        numOfLvl2Exercises += 1;
+                        break;
+
+                    case "3": //advanced
+                        numOfLvl3Exercises += 1;
+                        break;
+
+                    default:
+                        break;
+
+                }
+            }
+            sw.WriteLine("Number of Level1 exercises: {0} \n" +
+                "Number of Level2 exercises: {1} \n" +
+                "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
+
+
+
+
+            sw.Close();
         }
     }
 }
