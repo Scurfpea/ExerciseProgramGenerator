@@ -24,18 +24,18 @@
             Exercise[] exercise = new Exercise[numOfExercises]; //saves the exercises in a array.
             //String[] exercise = new String[numOfExercises];
 
-            exercise[0] = new Exercise("Three Legged Downward Facing Dog", "5", "1"); //Name, duration, level, category
-            exercise[1] = new Exercise("Lotus pose", "3", "2");
-            exercise[2] = new Exercise("Downward Facing Dog", "3", "3");
-            exercise[3] = new Exercise("Tree Pose", "3", "1");
-            exercise[4] = new Exercise("Garland Yoga Squat", "5", "2");
-            exercise[5] = new Exercise("Wide Child's Poses", "3", "3");
-            exercise[6] = new Exercise("Upward Dog", "3", "1");
-            exercise[7] = new Exercise("Pigeon Pose", "3", "2");
-            exercise[8] = new Exercise("Cow Pose", "5", "3");
-            exercise[9] = new Exercise("Bound Angle", "3", "1");
-            exercise[10] = new Exercise("Flower Pose", "3", "2");
-            exercise[11] = new Exercise("Seated Meditation Pose", "3", "3");
+            //exercise[0] = new Exercise("Three Legged Downward Facing Dog", "5", "1"); //Name, duration, level, category
+            //exercise[1] = new Exercise("Lotus pose", "3", "2");
+            //exercise[2] = new Exercise("Downward Facing Dog", "3", "3");
+            //exercise[3] = new Exercise("Tree Pose", "3", "1");
+            //exercise[4] = new Exercise("Garland Yoga Squat", "5", "2");
+            //exercise[5] = new Exercise("Wide Child's Poses", "3", "3");
+            //exercise[6] = new Exercise("Upward Dog", "3", "1");
+            //exercise[7] = new Exercise("Pigeon Pose", "3", "2");
+            //exercise[8] = new Exercise("Cow Pose", "5", "3");
+            //exercise[9] = new Exercise("Bound Angle", "3", "1");
+            //exercise[10] = new Exercise("Flower Pose", "3", "2");
+            //exercise[11] = new Exercise("Seated Meditation Pose", "3", "3");
             SaveContentOfExercise(); //run method
             CheckLevel();
 
