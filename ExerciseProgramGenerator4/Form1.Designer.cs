@@ -46,6 +46,8 @@
             LevelProgramtextBox = new TextBox();
             label1 = new Label();
             SaveProgram = new Button();
+            BlockLabel = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // LoadButton
@@ -206,7 +208,7 @@
             // 
             // SaveProgram
             // 
-            SaveProgram.Location = new Point(293, 371);
+            SaveProgram.Location = new Point(307, 404);
             SaveProgram.Name = "SaveProgram";
             SaveProgram.Size = new Size(75, 23);
             SaveProgram.TabIndex = 30;
@@ -214,11 +216,29 @@
             SaveProgram.UseVisualStyleBackColor = true;
             SaveProgram.Click += SaveProgram_Click;
             // 
+            // BlockLabel
+            // 
+            BlockLabel.AutoSize = true;
+            BlockLabel.Location = new Point(229, 358);
+            BlockLabel.Name = "BlockLabel";
+            BlockLabel.Size = new Size(30, 15);
+            BlockLabel.TabIndex = 32;
+            BlockLabel.Text = "Blok";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(293, 355);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 31;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BlockLabel);
+            Controls.Add(textBox1);
             Controls.Add(SaveProgram);
             Controls.Add(label1);
             Controls.Add(LevelProgramtextBox);
@@ -264,5 +284,7 @@
         private TextBox LevelProgramtextBox;
         private Label label1;
         private Button SaveProgram;
+        private Label BlockLabel;
+        private TextBox textBox1;
     }
 }

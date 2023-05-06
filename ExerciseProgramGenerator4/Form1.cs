@@ -10,13 +10,25 @@ namespace ExerciseProgramGenerator4
 
         public List<Exercise> ExcerciseProgramList = new List<Exercise>();
 
+        public List<Exercise> ExcerciseListMiddle = new List<Exercise>(); //1 = middle
+
+        public List<Exercise> ExcerciseListCoolDown = new List<Exercise>(); //2 = cooldown
+
+        int timeLeft = 30; //
+        int currentExerciseDuration = 0;
+        Exercise[] exercise;
+        int numOfLvl1Exercises = 0;
+        int numOfLvl2Exercises = 0;
+        int numOfLvl3Exercises = 0;
+
+
         //public List<YogaProgram> YogaProgramList = new List<YogaProgram>();
         private void Form1_Load(object sender, EventArgs e)
         {
             listView1.Columns.Add("Navn", 120);
             listView1.Columns.Add("Varighed", 80);
             listView1.Columns.Add("Sværhedsgrad", 120);
-            //listView1.Columns.Add("Kategori", 80);
+            listView1.Columns.Add("Blok", 80);
             //listView1.Columns.Add("Blok", 80);
             //listView1.Columns.Add("Billede", 80);
             LoadExercises(); //load exercises at startup
@@ -118,7 +130,7 @@ namespace ExerciseProgramGenerator4
             //Exercise[] exercise = new Exercise[lineCount]; //saves the exercises in a array. length of arr is number of lines in txt file.
             //________________________________
             //take data from list
-            Exercise[] exercise = new Exercise[listView1.Items.Count]; //saves the exercises in a array. length of arr is number of lines in txt file.
+            exercise = new Exercise[listView1.Items.Count]; //saves the exercises in a array. length of arr is number of lines in txt file.
             bool hasSaved = false;
             foreach (ListViewItem listItem in listView1.Items)
             {
@@ -146,50 +158,36 @@ namespace ExerciseProgramGenerator4
                 }
 
             }
+          
 
-
-            int numOfLvl1Exercises = 0;
-            int numOfLvl2Exercises = 0;
-            int numOfLvl3Exercises = 0;
-
-            int timeLeft = 60; //
-
-
-
-            for (int i = 0; i < exercise.Length; i++)
+            for (int i = 0; i < ExcerciseList.Count; i++)
             {
                 string lvl = LevelProgramtextBox.Text;
-                switch (ExcerciseList[i].Level) //should be the level given by the user.
+
+                currentExerciseDuration = int.Parse(ExcerciseList[i].Duration);
+                if (ExcerciseList[i].Level == lvl) //
                 {
-                    case "1": //beginner
-                        numOfLvl1Exercises += 1;
-                        if (timeLeft > timeLeft - int.Parse(ExcerciseList[i].Duration))
-                        { //checks if there enough time left in yogaprogram
+                    
+                    //if((ExcerciseList[i]. == blok))
+                    if (timeLeft > 0)//if (timeLeft > timeLeft - currentExerciseDuration)
+                    { //checks if there enough time left in yogaprogram
 
-                            ExcerciseProgramList.Add(ExcerciseList[i]); //adds this exercise to the list
-                            timeLeft -= int.Parse(ExcerciseList[i].Duration); //Removing the time the exercise takes from the total time.
-                        }
-                        break;
-
-                    case "2": //intermediate
-                        numOfLvl2Exercises += 1;
-                        break;
-
-                    case "3": //advanced
-                        numOfLvl3Exercises += 1;
-                        break;
-
-                    default:
-                        break;
-
-                }
+                        ExcerciseProgramList.Add(ExcerciseList[i]); //adds this exercise to the list
+                        timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
+                    }
+                    else 
+                            
+                        timeLeft = 0;
+                    
+                }               
             }
+            CountNumOfEachExercisesLvl();
             sw.WriteLine("Number of Level1 exercises: {0} \n" +
                 "Number of Level2 exercises: {1} \n" +
                 "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
-
+            sw.WriteLine(timeLeft);
             //make program
-            int rand = new Random().Next(0, ExcerciseList.Count() - 1); //to find a random exercise
+            //int rand = new Random().Next(0, ExcerciseList.Count() - 1); //to find a random exercise
             sw.WriteLine("ProgramList");
             for (int i = 0; i < ExcerciseProgramList.Count(); i++)
             {
@@ -210,7 +208,32 @@ namespace ExerciseProgramGenerator4
 
             sw.Close();
         }
+        private void CountNumOfEachExercisesLvl()
+        {
+            
+            for (int i = 0; i < exercise.Length; i++)
+            {
+                switch (ExcerciseList[i].Level) //should be the level given by the user.
+                {
+                    case "1": //beginner
+                        numOfLvl1Exercises += 1;
 
+                        break;
+
+                    case "2": //intermediate
+                        numOfLvl2Exercises += 1;
+                        break;
+
+                    case "3": //advanced
+                        numOfLvl3Exercises += 1;
+                        break;
+
+                    default:
+                        break;
+
+                }
+            }
+        }
         private void SaveProgram_Click(object sender, EventArgs e)
         {
 
