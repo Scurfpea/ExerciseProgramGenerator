@@ -42,11 +42,15 @@
             DurationLabel = new Label();
             NameLabel = new Label();
             GenerateProgram = new Button();
+            listView2 = new ListView();
+            LevelProgramtextBox = new TextBox();
+            label1 = new Label();
+            SaveProgram = new Button();
             SuspendLayout();
             // 
             // LoadButton
             // 
-            LoadButton.Location = new Point(77, 321);
+            LoadButton.Location = new Point(71, 227);
             LoadButton.Name = "LoadButton";
             LoadButton.Size = new Size(75, 23);
             LoadButton.TabIndex = 25;
@@ -56,7 +60,7 @@
             // 
             // Save
             // 
-            Save.Location = new Point(648, 321);
+            Save.Location = new Point(642, 227);
             Save.Name = "Save";
             Save.Size = new Size(75, 23);
             Save.TabIndex = 24;
@@ -66,7 +70,7 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(424, 321);
+            UpdateButton.Location = new Point(418, 227);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(75, 23);
             UpdateButton.TabIndex = 23;
@@ -76,7 +80,7 @@
             // 
             // RemoveButton
             // 
-            RemoveButton.Location = new Point(552, 321);
+            RemoveButton.Location = new Point(546, 227);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(75, 23);
             RemoveButton.TabIndex = 22;
@@ -86,7 +90,7 @@
             // 
             // NewButton
             // 
-            NewButton.Location = new Point(299, 321);
+            NewButton.Location = new Point(293, 227);
             NewButton.Name = "NewButton";
             NewButton.Size = new Size(75, 23);
             NewButton.TabIndex = 21;
@@ -96,7 +100,7 @@
             // 
             // AddButton
             // 
-            AddButton.Location = new Point(178, 321);
+            AddButton.Location = new Point(172, 227);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(75, 23);
             AddButton.TabIndex = 20;
@@ -106,21 +110,21 @@
             // 
             // LevelTextBox
             // 
-            LevelTextBox.Location = new Point(218, 237);
+            LevelTextBox.Location = new Point(212, 143);
             LevelTextBox.Name = "LevelTextBox";
             LevelTextBox.Size = new Size(100, 23);
             LevelTextBox.TabIndex = 19;
             // 
             // DurationTextBox
             // 
-            DurationTextBox.Location = new Point(218, 173);
+            DurationTextBox.Location = new Point(212, 79);
             DurationTextBox.Name = "DurationTextBox";
             DurationTextBox.Size = new Size(100, 23);
             DurationTextBox.TabIndex = 18;
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(218, 125);
+            NameTextBox.Location = new Point(212, 31);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(100, 23);
             NameTextBox.TabIndex = 17;
@@ -129,7 +133,7 @@
             // 
             listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             listView1.GridLines = true;
-            listView1.Location = new Point(360, 106);
+            listView1.Location = new Point(354, 12);
             listView1.Name = "listView1";
             listView1.Size = new Size(363, 186);
             listView1.TabIndex = 16;
@@ -140,7 +144,7 @@
             // LevelLabel
             // 
             LevelLabel.AutoSize = true;
-            LevelLabel.Location = new Point(108, 237);
+            LevelLabel.Location = new Point(102, 143);
             LevelLabel.Name = "LevelLabel";
             LevelLabel.Size = new Size(44, 15);
             LevelLabel.TabIndex = 15;
@@ -149,7 +153,7 @@
             // DurationLabel
             // 
             DurationLabel.AutoSize = true;
-            DurationLabel.Location = new Point(108, 176);
+            DurationLabel.Location = new Point(102, 82);
             DurationLabel.Name = "DurationLabel";
             DurationLabel.Size = new Size(53, 15);
             DurationLabel.TabIndex = 14;
@@ -158,7 +162,7 @@
             // NameLabel
             // 
             NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(108, 125);
+            NameLabel.Location = new Point(102, 31);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(35, 15);
             NameLabel.TabIndex = 13;
@@ -166,7 +170,7 @@
             // 
             // GenerateProgram
             // 
-            GenerateProgram.Location = new Point(309, 381);
+            GenerateProgram.Location = new Point(293, 284);
             GenerateProgram.Name = "GenerateProgram";
             GenerateProgram.Size = new Size(126, 23);
             GenerateProgram.TabIndex = 26;
@@ -174,11 +178,51 @@
             GenerateProgram.UseVisualStyleBackColor = true;
             GenerateProgram.Click += GenerateProgram_Click;
             // 
+            // listView2
+            // 
+            listView2.GridLines = true;
+            listView2.Location = new Point(438, 284);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(300, 154);
+            listView2.TabIndex = 27;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
+            // LevelProgramtextBox
+            // 
+            LevelProgramtextBox.Location = new Point(293, 326);
+            LevelProgramtextBox.Name = "LevelProgramtextBox";
+            LevelProgramtextBox.Size = new Size(100, 23);
+            LevelProgramtextBox.TabIndex = 28;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(229, 329);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 29;
+            label1.Text = "Niveau";
+            // 
+            // SaveProgram
+            // 
+            SaveProgram.Location = new Point(293, 371);
+            SaveProgram.Name = "SaveProgram";
+            SaveProgram.Size = new Size(75, 23);
+            SaveProgram.TabIndex = 30;
+            SaveProgram.Text = "Gem";
+            SaveProgram.UseVisualStyleBackColor = true;
+            SaveProgram.Click += SaveProgram_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(SaveProgram);
+            Controls.Add(label1);
+            Controls.Add(LevelProgramtextBox);
+            Controls.Add(listView2);
             Controls.Add(GenerateProgram);
             Controls.Add(LoadButton);
             Controls.Add(Save);
@@ -216,5 +260,9 @@
         private Label DurationLabel;
         private Label NameLabel;
         private Button GenerateProgram;
+        private ListView listView2;
+        private TextBox LevelProgramtextBox;
+        private Label label1;
+        private Button SaveProgram;
     }
 }

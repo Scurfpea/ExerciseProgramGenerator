@@ -7,6 +7,10 @@ namespace ExerciseProgramGenerator4
             InitializeComponent();
         }
         public List<Exercise> ExcerciseList = new List<Exercise>();
+
+        public List<Exercise> ExcerciseProgramList = new List<Exercise>();
+
+        //public List<YogaProgram> YogaProgramList = new List<YogaProgram>();
         private void Form1_Load(object sender, EventArgs e)
         {
             listView1.Columns.Add("Navn", 120);
@@ -29,9 +33,9 @@ namespace ExerciseProgramGenerator4
             }
         }
         private void LoadExercises()
-        {                      
+        {
             StreamReader rd = new StreamReader("Data.txt");
-           
+
             foreach (string line in File.ReadAllLines("Data.txt"))
             {
                 string[] parts = line.Split(';');
@@ -43,7 +47,7 @@ namespace ExerciseProgramGenerator4
             }
 
             rd.Close();
-           
+
             this.Controls.Add(listView1);
         }
         private void SaveExercises()
@@ -61,7 +65,7 @@ namespace ExerciseProgramGenerator4
         {
             //LoadExercises();
 
-            }
+        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -102,7 +106,7 @@ namespace ExerciseProgramGenerator4
         private void Save_Click(object sender, EventArgs e)
         {
             SaveExercises();
-            
+
         }
 
         private void GenerateProgram_Click(object sender, EventArgs e)
@@ -120,23 +124,27 @@ namespace ExerciseProgramGenerator4
             {
                 for (int i = 0; i < exercise.Count(); i++)
                 {
-                    
-                    if (!hasSaved) { //solves issue of it running 3 times
-                    exercise[i] = new Exercise($"{listItem.SubItems[0].Text}", $"{listItem.SubItems[1].Text}", $"{ listItem.SubItems[2].Text }"); //Name, duration, level, category
-                    sw.WriteLine(exercise[i].Name); //level
-                    sw.WriteLine(exercise[i].Duration); //duration
-                    sw.WriteLine(exercise[i].Level); //level
+
+                    if (!hasSaved)
+                    { //solves issue of it running 3 times
+                        exercise[i] = new Exercise($"{listItem.SubItems[0].Text}", $"{listItem.SubItems[1].Text}", $"{listItem.SubItems[2].Text}"); //Name, duration, level, category
+
+                        //delete this later, just for debug
+                        sw.WriteLine(exercise[i].Name); //level
+                        sw.WriteLine(exercise[i].Duration); //duration
+                        sw.WriteLine(exercise[i].Level); //level
+
                         ExcerciseList.Add(exercise[i]);
                         hasSaved = true;
                         break;
 
                     }
                     if (hasSaved)
-                            {
+                    {
                         hasSaved = false;
                     }
                 }
-                
+
             }
 
 
@@ -144,12 +152,23 @@ namespace ExerciseProgramGenerator4
             int numOfLvl2Exercises = 0;
             int numOfLvl3Exercises = 0;
 
+            int timeLeft = 60; //
+
+
+
             for (int i = 0; i < exercise.Length; i++)
             {
-                switch (ExcerciseList[i].Level)
+                string lvl = LevelProgramtextBox.Text;
+                switch (ExcerciseList[i].Level) //should be the level given by the user.
                 {
                     case "1": //beginner
                         numOfLvl1Exercises += 1;
+                        if (timeLeft > timeLeft - int.Parse(ExcerciseList[i].Duration))
+                        { //checks if there enough time left in yogaprogram
+
+                            ExcerciseProgramList.Add(ExcerciseList[i]); //adds this exercise to the list
+                            timeLeft -= int.Parse(ExcerciseList[i].Duration); //Removing the time the exercise takes from the total time.
+                        }
                         break;
 
                     case "2": //intermediate
@@ -169,10 +188,32 @@ namespace ExerciseProgramGenerator4
                 "Number of Level2 exercises: {1} \n" +
                 "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
 
+            //make program
+            int rand = new Random().Next(0, ExcerciseList.Count() - 1); //to find a random exercise
+            sw.WriteLine("ProgramList");
+            for (int i = 0; i < ExcerciseProgramList.Count(); i++)
+            {
 
+                sw.WriteLine(ExcerciseProgramList[i].Name); //level
+                sw.WriteLine(ExcerciseProgramList[i].Duration); //duration
+                sw.WriteLine(ExcerciseProgramList[i].Level); //level
+            }
 
+            //for (int i = 0; i< ExcerciseList.Count(); i++ )
+            //{
+            //    if ()
+            //    {
+
+            //    }
+            //}
+            //ExcerciseProgramList[i]
 
             sw.Close();
+        }
+
+        private void SaveProgram_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
