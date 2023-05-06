@@ -10,6 +10,8 @@ namespace ExerciseProgramGenerator4
 
         public List<Exercise> ExcerciseProgramList = new List<Exercise>();
 
+        public List<Exercise> GeneratedProgramList = new List<Exercise>();
+
         public List<Exercise> ExcerciseListMiddle = new List<Exercise>(); //1 = middle
 
         public List<Exercise> ExcerciseListCoolDown = new List<Exercise>(); //2 = cooldown
@@ -169,44 +171,68 @@ namespace ExerciseProgramGenerator4
                 {
                     
                     //if((ExcerciseList[i]. == blok))
-                    if (timeLeft > 0)//if (timeLeft > timeLeft - currentExerciseDuration)
-                    { //checks if there enough time left in yogaprogram
+                    //if (timeLeft > 0)//if (timeLeft > timeLeft - currentExerciseDuration)
+                    //{ //checks if there enough time left in yogaprogram
 
                         ExcerciseProgramList.Add(ExcerciseList[i]); //adds this exercise to the list
-                        timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
-                    }
-                    else 
+                        //timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
+                   // }
+                    //else 
                             
-                        timeLeft = 0;
+                        //timeLeft = 0;
                     
                 }               
             }
             CountNumOfEachExercisesLvl();
+            FindRandomExercise();
             sw.WriteLine("Number of Level1 exercises: {0} \n" +
                 "Number of Level2 exercises: {1} \n" +
                 "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
             sw.WriteLine(timeLeft);
             //make program
-            //int rand = new Random().Next(0, ExcerciseList.Count() - 1); //to find a random exercise
+            
             sw.WriteLine("ProgramList");
-            for (int i = 0; i < ExcerciseProgramList.Count(); i++)
+            //for (int i = 0; i < ExcerciseProgramList.Count(); i++)
+            //{
+
+            //    sw.WriteLine(ExcerciseProgramList[i].Name); //level
+            //    sw.WriteLine(ExcerciseProgramList[i].Duration); //duration
+            //    sw.WriteLine(ExcerciseProgramList[i].Level); //level
+            //}
+            for (int i = 0; i < GeneratedProgramList.Count(); i++)
             {
 
-                sw.WriteLine(ExcerciseProgramList[i].Name); //level
-                sw.WriteLine(ExcerciseProgramList[i].Duration); //duration
-                sw.WriteLine(ExcerciseProgramList[i].Level); //level
+                sw.WriteLine(GeneratedProgramList[i].Name); //level
+                sw.WriteLine(GeneratedProgramList[i].Duration); //duration
+                sw.WriteLine(GeneratedProgramList[i].Level); //level
             }
 
-            //for (int i = 0; i< ExcerciseList.Count(); i++ )
-            //{
-            //    if ()
-            //    {
 
-            //    }
-            //}
-            //ExcerciseProgramList[i]
 
             sw.Close();
+        }
+
+        private void FindRandomExercise()
+        {
+            for (int i = 0; i < ExcerciseProgramList.Count; i++) //run though list of all possible exercises.
+            {
+                
+
+                
+                //GeneratedProgramList
+                int rand = new Random().Next(0, ExcerciseProgramList.Count() - 1); //to find a random exercise
+                                                                                   //if((ExcerciseList[i]. == blok))
+                if (timeLeft > 0)//if (timeLeft > timeLeft - currentExerciseDuration)
+                { //checks if there enough time left in yogaprogram
+
+                    GeneratedProgramList.Add(ExcerciseProgramList[rand]); //adds this exercise to the list
+                    currentExerciseDuration = int.Parse(ExcerciseProgramList[rand].Duration);
+                    timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
+                }
+                else
+
+                    timeLeft = 0;
+            }
         }
         private void CountNumOfEachExercisesLvl()
         {
