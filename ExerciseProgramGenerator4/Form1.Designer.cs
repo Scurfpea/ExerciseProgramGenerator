@@ -46,8 +46,8 @@
             LevelProgramtextBox = new TextBox();
             label1 = new Label();
             SaveProgram = new Button();
-            BlockLabel = new Label();
-            textBox1 = new TextBox();
+            DurationProgramLabel = new Label();
+            DurationProgramTextBox = new TextBox();
             SuspendLayout();
             // 
             // LoadButton
@@ -216,29 +216,29 @@
             SaveProgram.UseVisualStyleBackColor = true;
             SaveProgram.Click += SaveProgram_Click;
             // 
-            // BlockLabel
+            // DurationProgramLabel
             // 
-            BlockLabel.AutoSize = true;
-            BlockLabel.Location = new Point(229, 358);
-            BlockLabel.Name = "BlockLabel";
-            BlockLabel.Size = new Size(30, 15);
-            BlockLabel.TabIndex = 32;
-            BlockLabel.Text = "Blok";
+            DurationProgramLabel.AutoSize = true;
+            DurationProgramLabel.Location = new Point(229, 358);
+            DurationProgramLabel.Name = "DurationProgramLabel";
+            DurationProgramLabel.Size = new Size(53, 15);
+            DurationProgramLabel.TabIndex = 32;
+            DurationProgramLabel.Text = "Duration";
             // 
-            // textBox1
+            // DurationProgramTextBox
             // 
-            textBox1.Location = new Point(293, 355);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 31;
+            DurationProgramTextBox.Location = new Point(293, 355);
+            DurationProgramTextBox.Name = "DurationProgramTextBox";
+            DurationProgramTextBox.Size = new Size(100, 23);
+            DurationProgramTextBox.TabIndex = 31;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(BlockLabel);
-            Controls.Add(textBox1);
+            Controls.Add(DurationProgramLabel);
+            Controls.Add(DurationProgramTextBox);
             Controls.Add(SaveProgram);
             Controls.Add(label1);
             Controls.Add(LevelProgramtextBox);
@@ -284,7 +284,7 @@
         private TextBox LevelProgramtextBox;
         private Label label1;
         private Button SaveProgram;
-        private Label BlockLabel;
-        private TextBox textBox1;
+        private Label DurationProgramLabel;
+        private TextBox DurationProgramTextBox;
     }
 }
