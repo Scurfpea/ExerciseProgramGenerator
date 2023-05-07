@@ -19,7 +19,7 @@ namespace ExerciseProgramGenerator4
         public List<Exercise> ExcerciseListCoolDown = new List<Exercise>(); //2 = cooldown
         List<Exercise> exerciseAll = new List<Exercise>(); //2 = cooldown
 
-        int timeLeft = 30; //
+        public int timeLeft = 30; //
         int currentExerciseDuration = 0;
         Exercise[] exercise;
         int numOfLvl1Exercises = 0;
@@ -134,10 +134,12 @@ namespace ExerciseProgramGenerator4
                                                                                    //if((ExcerciseList[i]. == blok))
                 if (timeLeft > 0)//if (timeLeft > timeLeft - currentExerciseDuration)
                 { //checks if there enough time left in yogaprogram
-
-                    GeneratedProgramList.Add(ExcerciseProgramList[rand]); //adds this exercise to the list
-                    currentExerciseDuration = int.Parse(ExcerciseProgramList[rand].Duration);
-                    timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
+                    if (GeneratedProgramList.Contains(ExcerciseProgramList[rand]) != true) //new checks if its already there
+                    {
+                        GeneratedProgramList.Add(ExcerciseProgramList[rand]); //adds this exercise to the list
+                        currentExerciseDuration = int.Parse(ExcerciseProgramList[rand].Duration);
+                        timeLeft -= currentExerciseDuration; //Removing the time the exercise takes from the total time.
+                    }
                 }
                 else
 

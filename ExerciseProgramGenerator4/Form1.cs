@@ -122,6 +122,7 @@ namespace ExerciseProgramGenerator4
         private void GenerateProgram_Click(object sender, EventArgs e)
         {
             controller.lvl = LevelProgramtextBox.Text;
+            controller.timeLeft = int.Parse(DurationProgramTextBox.Text);
             controller.GenerateProgram();
 
 
