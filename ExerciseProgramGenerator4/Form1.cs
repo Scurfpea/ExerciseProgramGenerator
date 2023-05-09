@@ -13,6 +13,10 @@ namespace ExerciseProgramGenerator4
         //public List<YogaProgram> YogaProgramList = new List<YogaProgram>();
         private void Form1_Load(object sender, EventArgs e)
         {
+            //userControl11.Hide();
+            userControl21.Hide();
+            userControl31.Hide();
+
             listView1.Columns.Add("Navn", 120);
             listView1.Columns.Add("Varighed", 80);
             listView1.Columns.Add("Sværhedsgrad", 120);
@@ -141,6 +145,36 @@ namespace ExerciseProgramGenerator4
             rd.Close();
 
             this.Controls.Add(listView2);
+        }
+
+        private void Page1Button_Click(object sender, EventArgs e)
+        {
+            //userControl11.Hide();
+            userControl21.Hide();
+            userControl31.Hide();
+
+            // userControl11.Show();
+            //userControl11.BringToFront();
+        }
+
+        private void Page2Button_Click(object sender, EventArgs e)
+        {
+            //userControl11.Hide();
+            //userControl21.Hide();
+            userControl31.Hide();
+
+            userControl21.Show();
+            userControl21.BringToFront();
+        }
+
+        private void Page3Button_Click(object sender, EventArgs e)
+        {
+            //userControl11.Hide();
+            userControl21.Hide();
+            //userControl31.Hide();
+
+            userControl31.Show();
+            userControl31.BringToFront();
         }
     }
 }

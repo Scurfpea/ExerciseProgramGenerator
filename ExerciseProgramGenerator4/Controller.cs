@@ -145,6 +145,10 @@ namespace ExerciseProgramGenerator4
 
                     timeLeft = 0;
             }
+            if (timeLeft >= currentExerciseDuration +3)
+            {
+                GeneratedProgramList.RemoveAt(0);
+            }
         }
         private void CountNumOfEachExercisesLvl()
         {

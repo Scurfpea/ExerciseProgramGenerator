@@ -48,6 +48,14 @@
             SaveProgram = new Button();
             DurationProgramLabel = new Label();
             DurationProgramTextBox = new TextBox();
+            panel1 = new Panel();
+            Page3Button = new Button();
+            Page2Button = new Button();
+            panel2 = new Panel();
+            userControl21 = new UserControl2();
+            userControl31 = new UserControl3();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // LoadButton
@@ -232,11 +240,66 @@
             DurationProgramTextBox.Size = new Size(100, 23);
             DurationProgramTextBox.TabIndex = 31;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(Page3Button);
+            panel1.Controls.Add(Page2Button);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 509);
+            panel1.TabIndex = 33;
+            // 
+            // Page3Button
+            // 
+            Page3Button.Location = new Point(71, 227);
+            Page3Button.Name = "Page3Button";
+            Page3Button.Size = new Size(75, 23);
+            Page3Button.TabIndex = 2;
+            Page3Button.Text = "Program";
+            Page3Button.UseVisualStyleBackColor = true;
+            Page3Button.Click += Page3Button_Click;
+            // 
+            // Page2Button
+            // 
+            Page2Button.Location = new Point(71, 175);
+            Page2Button.Name = "Page2Button";
+            Page2Button.Size = new Size(75, 23);
+            Page2Button.TabIndex = 1;
+            Page2Button.Text = "Øvelser";
+            Page2Button.UseVisualStyleBackColor = true;
+            Page2Button.Click += Page2Button_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(userControl21);
+            panel2.Controls.Add(userControl31);
+            panel2.Location = new Point(197, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(724, 509);
+            panel2.TabIndex = 34;
+            // 
+            // userControl21
+            // 
+            userControl21.Location = new Point(3, 0);
+            userControl21.Name = "userControl21";
+            userControl21.Size = new Size(724, 506);
+            userControl21.TabIndex = 1;
+            // 
+            // userControl31
+            // 
+            userControl31.Location = new Point(3, 19);
+            userControl31.Name = "userControl31";
+            userControl31.Size = new Size(703, 532);
+            userControl31.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(916, 509);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(DurationProgramLabel);
             Controls.Add(DurationProgramTextBox);
             Controls.Add(SaveProgram);
@@ -257,9 +320,13 @@
             Controls.Add(LevelLabel);
             Controls.Add(DurationLabel);
             Controls.Add(NameLabel);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,5 +353,11 @@
         private Button SaveProgram;
         private Label DurationProgramLabel;
         private TextBox DurationProgramTextBox;
+        private Panel panel1;
+        private Panel panel2;
+        private Button Page3Button;
+        private Button Page2Button;
+        private UserControl2 userControl21;
+        private UserControl3 userControl31;
     }
 }
