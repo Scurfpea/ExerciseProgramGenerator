@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,16 +28,8 @@ namespace ExerciseProgramGenerator4
         int numOfLvl3Exercises = 0;
         public string lvl;
 
-        public void GenerateProgram()
+        private void SaveAllExercises()
         {
-            StreamWriter sw = new StreamWriter("Data2.txt");
-            //________________________________
-            //take data from file
-            // var lineCount = File.ReadLines(@"Data.txt").Count();
-            //Exercise[] exercise = new Exercise[lineCount]; //saves the exercises in a array. length of arr is number of lines in txt file.
-            //________________________________
-            //take data from list
-            //exercise = new Exercise[listView1.Items.Count]; //saves the exercises in a array. length of arr is number of lines in txt file.
             bool hasSaved = false;
             //foreach (ListViewItem listItem in listView1.Items)
             {
@@ -51,17 +44,14 @@ namespace ExerciseProgramGenerator4
 
                         if (!hasSaved)
                         { //solves issue of it running 3 times
-                            
+
                             exerciseAll.Add(new Exercise($"{parts[0]}", $"{parts[1]}", $"{parts[2]}")); //Name, duration, level, category
 
-                            ////delete this later, just for debug
-                            //sw.WriteLine(exerciseAll); //level
-                            //sw.WriteLine(exerciseAll[].Duration); //duration
-                            //sw.WriteLine(exercise[i].Level); //level
+                            
 
                             //ExcerciseList.Add(exercise[i]);
-                                hasSaved = true;
-                                break;
+                            hasSaved = true;
+                            break;
 
                         }
                         if (hasSaved)
@@ -71,10 +61,22 @@ namespace ExerciseProgramGenerator4
                     }
 
                 }
-
-
-
-
+            }
+        }
+        public void ClearProgram()
+        {
+            
+            GeneratedProgramList.Clear();
+            ExcerciseProgramList.Clear();
+            
+            //File.WriteAllText("Data2.txt", String.Empty); Another solution to clear file
+            File.Create("Data2.txt").Close(); //clear file
+        }
+        public void GenerateProgram()
+        {
+            
+            SaveAllExercises();
+            StreamWriter sw = new StreamWriter("Data2.txt");                       
 
                 for (int i = 0; i < exerciseAll.Count; i++)
                 {
@@ -97,23 +99,10 @@ namespace ExerciseProgramGenerator4
 
                     }
                 }
-                CountNumOfEachExercisesLvl();
+                //CountNumOfEachExercisesLvl();
                 FindRandomExercise();
-                //Below is Debug
-                //sw.WriteLine("Number of Level1 exercises: {0} \n" +
-                //    "Number of Level2 exercises: {1} \n" +
-                //    "Number of Level3 exercises: {2}", numOfLvl1Exercises, numOfLvl2Exercises, numOfLvl3Exercises);
-                //sw.WriteLine(timeLeft);
-                //make program
-
-
-                //for (int i = 0; i < ExcerciseProgramList.Count(); i++)
-                //{
-
-                //    sw.WriteLine(ExcerciseProgramList[i].Name); //level
-                //    sw.WriteLine(ExcerciseProgramList[i].Duration); //duration
-                //    sw.WriteLine(ExcerciseProgramList[i].Level); //level
-                //}
+                
+                
                 for (int i = 0; i < GeneratedProgramList.Count(); i++)
                 {
 
@@ -123,7 +112,7 @@ namespace ExerciseProgramGenerator4
 
                 sw.Close();
             }
-        }
+        
 
         private void FindRandomExercise()
         {
@@ -150,31 +139,6 @@ namespace ExerciseProgramGenerator4
                 GeneratedProgramList.RemoveAt(0);
             }
         }
-        private void CountNumOfEachExercisesLvl()
-        {
-
-            for (int i = 0; i < exerciseAll.Count; i++)
-            {
-                switch (exerciseAll[i].Level) //should be the level given by the user.
-                {
-                    case "1": //beginner
-                        numOfLvl1Exercises += 1;
-
-                        break;
-
-                    case "2": //intermediate
-                        numOfLvl2Exercises += 1;
-                        break;
-
-                    case "3": //advanced
-                        numOfLvl3Exercises += 1;
-                        break;
-
-                    default:
-                        break;
-
-                }
-            }
-        }
+        
     }
 }
