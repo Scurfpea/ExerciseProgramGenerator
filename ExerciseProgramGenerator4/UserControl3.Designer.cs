@@ -35,6 +35,7 @@
             LevelProgramLabel = new Label();
             DurationProgramTextBox = new TextBox();
             LevelProgramtextBox = new TextBox();
+            NewProgram = new Button();
             SuspendLayout();
             // 
             // Titel
@@ -58,9 +59,9 @@
             // 
             // GenerateProgram
             // 
-            GenerateProgram.Location = new Point(137, 218);
+            GenerateProgram.Location = new Point(166, 218);
             GenerateProgram.Name = "GenerateProgram";
-            GenerateProgram.Size = new Size(144, 23);
+            GenerateProgram.Size = new Size(115, 23);
             GenerateProgram.TabIndex = 2;
             GenerateProgram.Text = "Generer program";
             GenerateProgram.UseVisualStyleBackColor = true;
@@ -98,10 +99,21 @@
             LevelProgramtextBox.Size = new Size(100, 23);
             LevelProgramtextBox.TabIndex = 6;
             // 
+            // NewProgram
+            // 
+            NewProgram.Location = new Point(48, 218);
+            NewProgram.Name = "NewProgram";
+            NewProgram.Size = new Size(111, 23);
+            NewProgram.TabIndex = 7;
+            NewProgram.Text = "Nyt Program";
+            NewProgram.UseVisualStyleBackColor = true;
+            NewProgram.Click += NewProgram_Click;
+            // 
             // UserControl3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(NewProgram);
             Controls.Add(LevelProgramtextBox);
             Controls.Add(DurationProgramTextBox);
             Controls.Add(LevelProgramLabel);
@@ -125,5 +137,6 @@
         private Label LevelProgramLabel;
         private TextBox DurationProgramTextBox;
         private TextBox LevelProgramtextBox;
+        private Button NewProgram;
     }
 }

@@ -49,5 +49,15 @@ namespace ExerciseProgramGenerator4
             listView2.Columns.Add("Sværhedsgrad", 120);
             listView2.Columns.Add("Blok", 80);
         }
+
+        private void NewProgram_Click(object sender, EventArgs e)
+        {
+            //TextBox.Text = ""; //removes the typed in content
+            DurationProgramTextBox.Text = "";
+            LevelProgramtextBox.Text = "";
+
+            listView2.Items.Clear();
+            controller.ClearProgram();
+        }
     }
 }
